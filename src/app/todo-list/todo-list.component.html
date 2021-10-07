@@ -1,0 +1,21 @@
+<p>todo-list works!</p>
+<table  border="1px" cellspacing="0px" width="100%">
+    <tr>
+        <th>Id</th>
+        <th>User Id</th>
+        <th>Name</th>
+        <th>Time</th>
+        <th>status</th>
+        
+    </tr>
+    <tr *ngFor="let data of tododata">
+        <td>{{data.id}}</td>
+        <td>{{data.user_id}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.due_on}}</td>
+        <td>{{data.status}}</td>
+        
+    </tr>
+   
+  </table>  
+  

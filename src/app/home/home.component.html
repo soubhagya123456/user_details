@@ -1,0 +1,78 @@
+<p>data is here</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button><hr>
+
+<table class="table table-dark" width="100%">
+  <thead>
+  <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>status</th>
+      <th>Todolist</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let data of listdata | paginate: { itemsPerPage: 10, currentPage: p }">
+      <td><a [routerLink]="['/one/'+data.id]" >{{data.id}}</a></td>
+      <td>{{data.name}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.gender}}</td>
+      <td>{{data.status}}</td>
+      <td><a [routerLink]="['/todo']">todalist-view</a></td>
+  </tr>
+</tbody>
+  <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+</table>  
+
+<!-- (click)="someFunction(data)" -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm)" >
+          <div class="mb-3">
+           <label for="exampleInputval" class="form-label">Id</label>
+           <input type="text" formControlName="id" class="form-control" id="exampleInputval">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputval" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control">
+           </div>
+           <div class="mb-3">
+            <label for="exampleInputval" class="form-label">Email</label>
+            <input type="text" formControlName="email" class="form-control">
+           </div>
+           <div class="mb-3">
+            <label for="exampleInputval" class="form-label">Gender</label>
+            <input type="text"  formControlName="gender" class="form-control" id="exampleInputval">
+           </div>
+           <div class="mb-3">
+            <label for="exampleInputval" class="form-label">Status</label>
+            <input type="text"  formControlName="status" class="form-control" id="exampleInputval">
+           </div>
+         
+           <div class="mb-3">
+           <button type="submit" class="btn btn-primary">Add user</button>
+          </div>
+        </form>
+      
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
